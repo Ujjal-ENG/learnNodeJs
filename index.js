@@ -14,12 +14,12 @@
 // });
 // console.log("Hello");
 
-const School = require("./school");
+// const School = require("./school");
 
-// raise an event
+// // raise an event
 
-const school = new School();
-school.on("bellRing", ({ period, text }) => {
-  console.log(`We need to run because ${period} ${text}`);
-});
-school.startPeriod();
+// const school = new School();
+// school.on("bellRing", ({ period, text }) => {
+//   console.log(`We need to run because ${period} ${text}`);
+// });
+// school.startPeriod();
