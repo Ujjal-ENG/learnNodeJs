@@ -34,8 +34,10 @@
 const fs = require("fs");
 
 const ourReadStream = fs.createReadStream(`${__dirname}/file.txt`);
-const ourWriteStram = fs.createWriteStream(`${__dirname}/file1.txt`);
+const ourWriteStram = fs.createWriteStream(`${__dirname}/filePipe.txt`);
 
-ourReadStream.on("data", (chunk) => {
-  ourWriteStram.write(chunk);
-});
+// ourReadStream.on("data", (chunk) => {
+//   ourWriteStram.write(chunk);
+// });
+
+ourReadStream.pipe(ourWriteStram);
