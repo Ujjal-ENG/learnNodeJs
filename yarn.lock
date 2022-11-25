@@ -38,7 +38,7 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-body-parser@1.20.1:
+body-parser@^1.20.1, body-parser@1.20.1:
   version "1.20.1"
   resolved "https://registry.npmjs.org/body-parser/-/body-parser-1.20.1.tgz"
   integrity sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw==
@@ -482,6 +482,11 @@ qs@6.11.0:
   integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
   dependencies:
     side-channel "^1.0.4"
+
+random-fruits-name@^1.9.5:
+  version "1.9.5"
+  resolved "https://registry.npmjs.org/random-fruits-name/-/random-fruits-name-1.9.5.tgz"
+  integrity sha512-oBJENH7T9Svs991dF4fDe7RaKqFOdoZvc0xIm08DiS4lVW3EutN0H8DYyNPskkrBpCbc9HJZwbNDT5+HrgKyaw==
 
 range-parser@~1.2.1:
   version "1.2.1"

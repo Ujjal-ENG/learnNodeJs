@@ -1,9 +1,29 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.1",
     "express": "^4.18.2",
     "loadash": "^1.0.0",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.20",
+    "random-fruits-name": "^1.9.5",
     "react": "^18.2.0"
-  }
+  },
+  "name": "nodejs",
+  "description": "��#\u0000 \u0000l\u0000e\u0000a\u0000r\u0000n\u0000N\u0000o\u0000d\u0000e\u0000J\u0000s\u0000\r\u0000 \u0000",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ujjal-ENG/learnNodeJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ujjal-ENG/learnNodeJs/issues"
+  },
+  "homepage": "https://github.com/Ujjal-ENG/learnNodeJs#readme"
 }

@@ -1,25 +1,11 @@
-const readline = require('node:readline');
-const input = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-const userInput = [];
-
-input.on("line", (values) => {
-  userInput.push(values);
-});
-
-input.on("close", () => {
-  console.log(addvalues(userInput));
-});
-
-const addvalues = (data) => {
-  var sum = 0;
-  var num = data[0].split(" ");
-  for (let i = 0; i < num.length; i++) {
-    num[i] = parseInt(num[i]);
-    sum += num[i];
+var largestPerimeter = function (nums) {
+  let arr = nums.sort((a, b) => b - a);
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] < arr[i + 1] + arr[i + 2]) {
+      return arr[i] + arr[i+1]+arr[i+2]
+    }
   }
-  return sum;
+  return 0
 };
+
+console.log(largestPerimeter([2, 1, 2]));
