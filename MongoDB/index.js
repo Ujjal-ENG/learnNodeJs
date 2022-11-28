@@ -119,8 +119,30 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
-
 //delete data from database
+app.delete("/products/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const product = await Product.findByIdAndDelete({ _id: id });
+    if (product) {
+      res.status(200).send({
+        success: true,
+        message: "deleted single product",
+        data: product,
+      });
+    } else {
+      res.status(404).send({
+        success: false,
+        message: "product was not deleted with this command id",
+      });
+    }
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+});
+
 
 
 
