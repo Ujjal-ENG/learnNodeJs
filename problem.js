@@ -1,11 +1,10 @@
-var largestPerimeter = function (nums) {
-  let arr = nums.sort((a, b) => b - a);
-  for (let i = 0; i < arr.length; i++){
-    if (arr[i] < arr[i + 1] + arr[i + 2]) {
-      return arr[i] + arr[i+1]+arr[i+2]
-    }
-  }
-  return 0
+let convertNum = (num) => {
+  let units = ["M", "B", "T", "k"];
+  let unit = Math.floor((num / 1.0e1).toFixed(0).toString().length);
+  let r = unit % 3;
+  let x = Math.abs(Number(num)) / Number("1.0e+" + (unit - r)).toFixed(2);
+  return x.toFixed(0) + " " + units[Math.floor(unit / 3) - 2];
 };
 
-console.log(largestPerimeter([2, 1, 2]));
+const res = convertNum(16555000);
+console.log(res);
