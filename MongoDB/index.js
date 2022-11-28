@@ -19,7 +19,10 @@ const port = 4000;
 const productsSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, "Product title is must be required"],
+    minlength: [3, "minimum length of the product title shoud be 3"],
+    lowercase: true,
+    trim: true,
   },
   price: Number,
   description: String,
@@ -144,7 +147,6 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 //update the product infromation
-
 app.put("/products/:id", async (req, res) => {
   try {
     const id = req.params.id;
