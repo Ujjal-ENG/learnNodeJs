@@ -143,8 +143,37 @@ app.delete("/products/:id", async (req, res) => {
   }
 });
 
+//update the product infromation
 
-
+app.put("/products/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedProduct = await Product.updateOne(
+      { _id: id },
+      {
+        $set: {
+          price: 1500,
+        },
+      }
+    );
+    if (updatedProduct) {
+      res.status(200).send({
+        success: true,
+        message: "updated single specific product",
+        data: updatedProduct
+      });
+    } else {
+      res.status(404).send({
+        success: false,
+        message: 'Item is not updated'
+      })
+    }
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
+});
 
 app.listen(port, async () => {
   console.log(`Server is running at http://localhost:${port}`);
