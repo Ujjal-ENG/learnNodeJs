@@ -148,12 +148,18 @@ app.delete("/products/:id", async (req, res) => {
 app.put("/products/:id", async (req, res) => {
   try {
     const id = req.params.id;
+    const { title, description, price } = req.body;
     const updatedProduct = await Product.findByIdAndUpdate(
       { _id: id },
       {
         $set: {
-          price: 1500,
+          title: title,
+          description: description,
+          price: price,
         },
+      },
+      {
+        new: true,
       }
     );
     if (updatedProduct) {
