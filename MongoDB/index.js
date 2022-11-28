@@ -74,7 +74,9 @@ app.get("/products", async (req, res) => {
     const price = req.query.price;
     let products;
     if (price) {
-      products = await Product.find({ price: { $gt: price } }).limit();
+      products = await Product.find({ price: { $gt: price } })
+        .limit()
+        .sort({ price: 1 });
     } else {
       products = await Product.find().limit();
     }
