@@ -119,6 +119,11 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
+
+//delete data from database
+
+
+
 app.listen(port, async () => {
   console.log(`Server is running at http://localhost:${port}`);
   await connectDB();
