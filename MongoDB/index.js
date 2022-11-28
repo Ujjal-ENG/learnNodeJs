@@ -148,7 +148,7 @@ app.delete("/products/:id", async (req, res) => {
 app.put("/products/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const updatedProduct = await Product.updateOne(
+    const updatedProduct = await Product.findByIdAndUpdate(
       { _id: id },
       {
         $set: {
@@ -160,13 +160,13 @@ app.put("/products/:id", async (req, res) => {
       res.status(200).send({
         success: true,
         message: "updated single specific product",
-        data: updatedProduct
+        data: updatedProduct,
       });
     } else {
       res.status(404).send({
         success: false,
-        message: 'Item is not updated'
-      })
+        message: "Item is not updated",
+      });
     }
   } catch (error) {
     res.status(500).send({
