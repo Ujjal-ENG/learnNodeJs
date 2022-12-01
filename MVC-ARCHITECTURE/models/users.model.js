@@ -1,11 +1,10 @@
 const users = [
   {
-    name: "Ujjal Roy",
-    age: 23,
-  },
-  {
-    name: "Shikha Rani Roy",
-    age: 38,
+    firstname: "Ujjal",
+    lastname: "Roy",
+    phonenumber: "018718734",
+    Email: "ujjal@gmail.com",
+    password:'erwr'
   },
 ];
 
