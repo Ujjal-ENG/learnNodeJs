@@ -2,11 +2,13 @@ import {
   Controller,
   Delete,
   Get,
+  Header,
   HttpCode,
   Param,
   Post,
   Put,
   Query,
+  Redirect,
   Res,
 } from '@nestjs/common';
 import { Response } from 'express';
@@ -15,6 +17,7 @@ import { Response } from 'express';
 export class ProductsController {
   @Get('/all')
   @HttpCode(200)
+  @Header('Authorization', 'Bearer 123456')
   findAll(
     @Res()
     response: Response,
@@ -45,5 +48,19 @@ export class ProductsController {
     return response.json({
       message: `Product #${id} Removed!`,
     });
+  }
+
+  @Get('docs')
+  @Redirect('https://docs.nestjs.com', 302)
+  getDocs(
+    @Res()
+    response: Response,
+    @Query()
+    query: { isSuccess: boolean },
+  ): any {
+    if (query.isSuccess) {
+      return response.redirect('https://docs.nestjs.com/v5');
+    }
+    return response.json({ message: 'Product Docs!' });
   }
 }
