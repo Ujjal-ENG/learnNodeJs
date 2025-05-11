@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Req, Res } from '@nestjs/common';
+import { Controller, Get, Post, Query, Req, Res } from '@nestjs/common';
 import { Response } from 'express';
 
 @Controller('products')
@@ -17,8 +17,13 @@ export class ProductsController {
   findOne(id: string) {
     return `This action returns a #${id} product`;
   }
-  create() {
-    return 'This action adds a new product';
+
+  @Post('create')
+  create(
+    @Res()
+    response: Response,
+  ): any {
+    return response.json({ message: 'Product Created!' });
   }
   update(id: string) {
     return `This action updates a #${id} product`;
