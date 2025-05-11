@@ -1,12 +1,21 @@
-import { Controller, Get, Post, Query, Req, Res } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+  Put,
+  Query,
+  Res,
+} from '@nestjs/common';
 import { Response } from 'express';
 
 @Controller('products')
 export class ProductsController {
   @Get('/all')
+  @HttpCode(200)
   findAll(
-    @Req()
-    request: Request,
     @Res()
     response: Response,
     @Query()
@@ -25,10 +34,16 @@ export class ProductsController {
   ): any {
     return response.json({ message: 'Product Created!' });
   }
-  update(id: string) {
-    return `This action updates a #${id} product`;
+
+  @Put('update/:id')
+  update(@Param('id') id: string): { message: string } {
+    return { message: `Product #${id} Updated!` };
   }
-  remove(id: string) {
-    return `This action removes a #${id} product`;
+
+  @Delete('remove/:id')
+  remove(@Param('id') id: string, @Res() response: Response): any {
+    return response.json({
+      message: `Product #${id} Removed!`,
+    });
   }
 }
