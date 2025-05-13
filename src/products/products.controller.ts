@@ -63,4 +63,18 @@ export class ProductsController {
     }
     return response.json({ message: 'Product Docs!' });
   }
+
+  @Get('redirect')
+  @Redirect('https://docs.nestjs.com', 302)
+  getRedirect(
+    @Res()
+    response: Response,
+    @Query()
+    query: { isSuccess: boolean },
+  ): any {
+    if (query.isSuccess) {
+      return response.redirect('https://docs.nestjs.com/v5');
+    }
+    return response.json({ message: 'Product Redirect!' });
+  }
 }
